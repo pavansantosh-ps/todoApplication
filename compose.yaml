@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:14'
+    environment:
+      - 'POSTGRES_DB=todoapplication'
+      - 'POSTGRES_PASSWORD=todo@2024'
+      - 'POSTGRES_USER=todo'
+    ports:
+      - '5432:5432'
