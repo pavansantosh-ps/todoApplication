@@ -1,0 +1,34 @@
+<div class="flex flex-wrap">
+    <div
+        class="flex flex-row justify-between px-3 m-2  mx-auto w-full sm:w-7/12 rounded-xl bg-slate-200 dark:bg-slate-800">
+        <div class="sm:flex items-stretch grow p-3">
+            <span
+                class="my-0 flex font-semibold text-[1.35rem]/[1.2] flex-col justify-center text-slate-800 dark:text-slate-200">
+                ToDo List
+            </span>
+        </div>
+        <div class="flex flex-row p-3">
+            <div class="flex mr-2 items-center">
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" [value]="isdarkMode" (change)="handleDarkMode(isdarkMode)"
+                        class="sr-only peer">
+                    <div
+                        class="relative w-11 h-6 bg-slate-800 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-slate-50 dark:after:bg-slate-800 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-200">
+                    </div>
+                </label>
+            </div>
+            <div class="sm:flex" >
+                <button type="button" [matMenuTriggerFor]="menu" class="flex w-8 h-8 border-2 rounded border-spacing-2 border-slate-800 dark:border-slate-200 justify-center items-center">
+                    <mat-icon aria-hidden="false" aria-label="Example filter icon" fontIcon="filter_list" class="text-slate-800 dark:text-slate-200"></mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" class="!bg-slate-50">
+                    @for (option of options; track option) {
+                        <button (click)="onClick(option.parseValue)" class="!min-h-8 !text-slate-800" mat-menu-item>
+                            {{option.displayValue}}
+                        </button>
+                    }
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</div>

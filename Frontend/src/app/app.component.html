@@ -1,0 +1,6 @@
+<div [class.dark]="isDarkMode">
+  <div class="bg-slate-100 dark:bg-slate-900 w-screen h-screen">
+    <app-navbar [isdarkMode]="isDarkMode" (darkMode)="handleDarkMode()" (filter)="handleFilter($event)"/>
+  </div>
+</div>
+<router-outlet />
